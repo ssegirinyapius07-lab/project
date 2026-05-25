@@ -2223,33 +2223,44 @@ body.dark-mode .logo-icon {
     /* A nice muted grey */
     text-align: center;
 }
-/* Responsive Header Adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        flex-wrap: wrap; /* Allows items to wrap to a new line if needed */
-        justify-content: space-between;
-        padding: 10px;
-    }
-
-    .nav-links {
-        width: 100%; /* Force nav links to take up the full width row */
-        order: 3;    /* Move this below the logo and button */
-        justify-content: center;
-        margin-top: 10px;
-        gap: 10px;
-    }
-
-    .logo, .nav-actions {
-        order: 1; /* Keep logo and button at the top */
-    }
+/* --- The Buttons (Neutral when idle, Blue when active) --- */
+#filter-bar button {
+    background-color: #334155;
+    /* Neutral dark grey background */
+    color: #f8fafc;
+    /* Light text */
+    border: 1px solid #475569;
+    /* Subtle border */
+    padding: 16px 32px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* Smooth transition for the color change */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* --- The Hover/Click Effect --- */
+#filter-bar button:hover,
+#filter-bar button:active {
+    background-color: #2563eb;
+    /* Only turns blue when interacting */
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+    /* Slight 'lift' when you touch it */
+}
+
+/* --- Mobile Specific Grid --- */
 @media (max-width: 600px) {
-    .filter-nav {
-        flex-direction: column; /* Stack buttons vertically on small screens */
-        gap: 10px;
+    #filter-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
 
-    .filter-nav button {
-        width: 100%; /* Buttons span the full width of the phone */
+    #filter-bar button {
+        padding: 20px 10px;
+        font-size: 15px;
     }
 }
