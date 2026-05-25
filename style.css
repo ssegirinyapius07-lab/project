@@ -2223,3 +2223,33 @@ body.dark-mode .logo-icon {
     /* A nice muted grey */
     text-align: center;
 }
+/* Responsive Header Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap; /* Allows items to wrap to a new line if needed */
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .nav-links {
+        width: 100%; /* Force nav links to take up the full width row */
+        order: 3;    /* Move this below the logo and button */
+        justify-content: center;
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .logo, .nav-actions {
+        order: 1; /* Keep logo and button at the top */
+    }
+}
+@media (max-width: 600px) {
+    .filter-nav {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 10px;
+    }
+
+    .filter-nav button {
+        width: 100%; /* Buttons span the full width of the phone */
+    }
+}
