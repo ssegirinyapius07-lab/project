@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SomaHub - Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-mode">
+
+    <header class="navbar">
+        <div class="logo">
+            <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                <path d="M12 6v10"></path>
+                <path d="M9 9h6"></path>
+            </svg>
+            Soma<span>Hub</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="index.html" class="active">Back To Homepage</a>
+            <a href="#">Curriculum</a>
+            <a href="#">Upload & Earn</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-switch-btn" aria-label="Toggle Theme">
+                <div class="toggle-track">
+                    <div class="toggle-thumb">
+                        <span class="icon-sun">☀️</span>
+                        <span class="icon-moon">🌙</span>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <nav id="filter-bar" class="filter-nav"></nav>
+    <div id="content-container" class="level-card-grid"></div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // Wait for everything to load, then create the buttons
+        window.addEventListener('DOMContentLoaded', () => {
+            const hub = localStorage.getItem('selectedHub');
+            const filterBar = document.getElementById('filter-bar');
+
+            if (hub === 'olevel') {
+                filterBar.innerHTML = `
+                    <button onclick="renderResources('S1')">Senior 1</button>
+                    <button onclick="renderResources('S2')">Senior 2</button>
+                    <button onclick="renderResources('S3')">Senior 3</button>
+                    <button onclick="renderResources('S4')">Senior 4</button>
+                `;
+            } else if (hub === 'alevel') {
+                filterBar.innerHTML = `
+                    <button onclick="renderResources('S5')">Senior 5</button>
+                    <button onclick="renderResources('S6')">Senior 6</button>
+                `;
+            }
+        });
+    </script>
+</body>
+
+</html>

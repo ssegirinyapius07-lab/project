@@ -1,0 +1,2225 @@
+/* ==========================================================================
+   1. Modern Design Tokens & Color Systems
+   ========================================================================== */
+:root {
+    /* Fluid Light Theme Blueprint */
+    --primary-color: #030712;
+    --accent-color: #f59e0b;
+    --brand-blue: #4f46e5;
+    /* Vibrant Electric Indigo */
+    --brand-blue-hover: #4338ca;
+    --text-main: #374151;
+    --text-light: #6b7280;
+    --bg-light: #f8fafc;
+    /* Crisp clean canvas background */
+    --bg-white: rgba(255, 255, 255, 0.85);
+    /* Glass base */
+    --border-color: rgba(226, 232, 240, 0.8);
+    --whatsapp-color: #10b981;
+    --input-focus-bg: #ffffff;
+
+    --radius-md: 12px;
+    /* Smoother rounded geometry */
+    --radius-lg: 18px;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.03), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+
+    /* Dark Theme Core Blueprint */
+    --dark-bg: #030712;
+    --dark-card: rgba(17, 24, 39, 0.75);
+    --dark-text: #f9fafb;
+    --dark-border: rgba(37, 99, 235, 0.15);
+
+    /* Scrollbar Virtual Sync */
+    --sb-track: var(--bg-light);
+
+    /* Micro Interactions & Motion System Tokens */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.25s ease;
+    --transition-slow: 0.4s ease;
+}
+
+/* Base Level Adjustments */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+body {
+    background: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ==========================================================================
+   2. Premium Glassmorphic Navigation & Custom Buttons
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 1rem;
+    backdrop-filter: blur(12px);
+    /* High-end glass style blur */
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    letter-spacing: -0.75px;
+    flex-shrink: 0;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--brand-blue);
+}
+
+.theme-switch-btn {
+    background: rgba(241, 245, 249, 0.8);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.theme-switch-btn:hover {
+    background: #e2e8f0;
+}
+
+body.dark-mode .icon-sun {
+    display: block;
+}
+
+body.dark-mode .icon-moon {
+    display: none;
+}
+
+.icon-sun {
+    display: none;
+}
+
+.icon-moon {
+    display: block;
+    font-size: 0.9rem;
+}
+
+.btn-secondary {
+    border: 1.5px solid var(--brand-blue);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--brand-blue) !important;
+    font-weight: 700 !important;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--brand-blue);
+    color: #ffffff !important;
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+}
+
+/* Symmetrical Navbar Register Button Layout */
+.btn-register {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out !important;
+    margin-left: 12px !important;
+    cursor: pointer !important;
+    background-color: transparent !important;
+    color: #1e293b !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+.btn-register:hover {
+    background-color: #f1f5f9 !important;
+    border-color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   3. Modern Minimal Hero Section
+   ========================================================================== */
+.hero-section {
+    text-align: center;
+    padding: 6rem 1.5rem;
+    background: radial-gradient(circle at top, rgba(79, 70, 229, 0.08) 0%, transparent 60%), #030712;
+    color: #ffffff;
+}
+
+.hero-badge {
+    background: rgba(79, 70, 229, 0.15);
+    border: 1px solid rgba(79, 70, 229, 0.3);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #818cf8;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.hero-section h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    max-width: 850px;
+    margin: 0 auto 1.25rem auto;
+    line-height: 1.15;
+}
+
+.hero-section p {
+    font-size: 1.15rem;
+    color: #9ca3af;
+    max-width: 650px;
+    margin: 0 auto 2.5rem auto;
+}
+
+/* Unified Modern Glow Search Bar Container */
+.search-filter {
+    display: flex;
+    max-width: 750px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 0.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.filter-select {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    background: transparent;
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 0.9rem;
+    outline: none;
+    border-right: 1px solid #e5e7eb;
+    cursor: pointer;
+}
+
+.search-filter input {
+    flex: 1;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #030712;
+}
+
+.search-filter input::placeholder {
+    color: #9ca3af;
+}
+
+.btn-primary {
+    background: var(--brand-blue);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--brand-blue-hover);
+}
+
+/* ==========================================================================
+   4. Multi-Level Education Interactive Hub Cards
+   ========================================================================== */
+.level-selector-section {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.section-title-center {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-title-center h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.75px;
+}
+
+.section-title-center p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 0.35rem;
+}
+
+.level-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.level-toggle-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform, box-shadow;
+}
+
+.level-toggle-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand-blue);
+    box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.1);
+}
+
+.level-toggle-card.active {
+    border-color: var(--brand-blue);
+    background: rgba(79, 70, 229, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.1);
+}
+
+.level-icon-box {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.level-toggle-card h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.level-toggle-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   5. Clean Metrics Stats Dashboard Row
+   ========================================================================== */
+.stats-bar {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.75rem 1rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.stats-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--brand-blue);
+    letter-spacing: -0.5px;
+}
+
+.stat-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-top: 0.1rem;
+}
+
+/* ==========================================================================
+   6. Feed Layout Framework & Clean Minimal Cards
+   ========================================================================== */
+.main-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 3rem;
+}
+
+.main-feed {
+    min-width: 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+.view-all-link {
+    text-decoration: none;
+    color: var(--brand-blue);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.resource-item {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s ease;
+}
+
+.resource-item:hover {
+    border-color: rgba(79, 70, 229, 0.4);
+    transform: scale(1.005);
+    box-shadow: var(--shadow-lg);
+}
+
+.resource-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.resource-info h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+}
+
+.resource-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+}
+
+.meta-tag {
+    background: #f1f5f9;
+    color: var(--text-main);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+}
+
+.file-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+
+.pdf {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.doc {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.resource-action {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.price-tag {
+    font-weight: 800;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.price-tag.premium {
+    color: var(--brand-blue);
+}
+
+.price-tag.free {
+    color: #10b981;
+}
+
+.btn-action {
+    text-decoration: none;
+    background: #030712;
+    color: #ffffff;
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.resource-item:hover .btn-action {
+    background: var(--brand-blue);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+}
+
+/* ==========================================================================
+   7. Glass Sidebar Modules
+   ========================================================================== */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar-widget {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 1.75rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.sidebar-widget h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.25px;
+}
+
+.widget-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.creator-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: #e2e8f0;
+    color: #030712;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.creator-profile strong {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    display: block;
+    font-weight: 700;
+}
+
+.creator-profile p {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.badge-earning {
+    background: rgba(16, 185, 129, 0.1);
+    color: #065f46;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.promo-widget {
+    background: linear-gradient(180deg, #4f46e5 0%, #030712 100%);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.25);
+}
+
+.promo-widget h3 {
+    color: #ffffff;
+}
+
+.promo-widget p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin: 0.75rem 0 1.75rem 0;
+    line-height: 1.5;
+}
+
+.btn-sidebar-action {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #ffffff;
+    color: #030712;
+    font-weight: 700;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+.btn-sidebar-action:hover {
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   8. Premium Document Details View Layout
+   ========================================================================== */
+.breadcrumb-container {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2.5rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.breadcrumbs {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: var(--brand-blue);
+    margin-right: 0.5rem;
+}
+
+.breadcrumbs span {
+    margin-left: 0.5rem;
+}
+
+.detail-layout-grid {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.content-primary-block {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.document-header-card h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0.85rem 0 0.6rem 0;
+    letter-spacing: -0.8px;
+    line-height: 1.25;
+}
+
+.document-sub-meta {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.75rem;
+    margin-bottom: 1.75rem;
+    font-weight: 500;
+}
+
+.document-sub-meta span {
+    background: #fef3c7;
+    color: #d97706;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+}
+
+.detail-description-section h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    letter-spacing: -0.3px;
+}
+
+.detail-description-section p,
+.detail-description-section li {
+    font-size: 1rem;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+}
+
+.detail-description-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Premium Lock & Blur Visual Engine Layout */
+.document-preview-box {
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: #f8fafc;
+    padding: 2rem;
+    overflow: hidden;
+    height: 350px;
+}
+
+.blurred-sample-content {
+    filter: blur(5.5px);
+    user-select: none;
+    opacity: 0.25;
+}
+
+.preview-overlay-lock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.98) 75%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.lock-card {
+    text-align: center;
+    max-width: 400px;
+    padding: 1rem;
+}
+
+.lock-card span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.lock-card h4 {
+    font-size: 1.25rem;
+    color: #030712;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+}
+
+.lock-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Floating Checkout Widget */
+.sticky-action-checkout-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: sticky;
+    top: 6.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-header-row {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkout-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.checkout-price {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--brand-blue);
+    margin-top: 0.25rem;
+    letter-spacing: -0.5px;
+}
+
+.file-specifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.6rem;
+}
+
+.spec-row span {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.spec-row strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.btn-checkout-primary {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: var(--brand-blue);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 20px -3px rgba(79, 70, 229, 0.3);
+    transition: background 0.2s;
+}
+
+.btn-checkout-primary:hover {
+    background: var(--brand-blue-hover);
+}
+
+.alternative-share-actions {
+    margin-top: 1rem;
+}
+
+.btn-sidebar-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--whatsapp-color);
+    border: 1.5px solid var(--whatsapp-color);
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+.btn-sidebar-whatsapp:hover {
+    background: var(--whatsapp-color);
+    color: #ffffff;
+}
+
+.secure-checkout-guarantee-note {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 1.25rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   9. Premium Backdrop Blur Popup Authentication Forms (Modals Container)
+   ========================================================================== */
+.modal-overlay {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999 !important;
+
+    /* Fallback engine supports both JS class toggles (.active and .open) */
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.active,
+.modal-overlay.open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.modal-card,
+.auth-card {
+    background: #111827 !important;
+    /* Forces premium unified dark backdrop */
+    border: 1px solid #1f2937 !important;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 440px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+
+    /* CRITICAL FIX: Creates the boundary coordinate anchor for the close-modal-btn */
+    position: relative !important;
+}
+
+.modal-overlay.active .modal-card,
+.modal-overlay.open .modal-card {
+    transform: scale(1);
+}
+
+/* MATCHES HTML LINE 182 COMPLETELY - LOCKS X BUTTON TO TOP-RIGHT */
+.close-modal-btn {
+    position: absolute !important;
+    top: 1.25rem !important;
+    right: 1.5rem !important;
+    background: transparent !important;
+    border: none !important;
+    font-size: 1.75rem !important;
+    font-weight: 300 !important;
+    color: #9ca3af !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    padding: 4px !important;
+    z-index: 50 !important;
+    transition: color var(--transition-fast), transform var(--transition-fast) !important;
+}
+
+.close-modal-btn:hover {
+    color: #ef4444 !important;
+    transform: scale(1.1) !important;
+}
+
+/* Symmetrical Premium Popup Tab Selectors Styling */
+.auth-tabs {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #374151;
+    padding-bottom: 0.75rem;
+}
+
+.auth-tabs .tab-btn {
+    background: #1f2937 !important;
+    color: #9ca3af !important;
+    border: 1px solid #374151 !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 6px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+.auth-tabs .tab-btn:hover {
+    background: #374151 !important;
+    color: #ffffff !important;
+}
+
+.auth-tabs .tab-btn.active {
+    background: var(--brand-blue) !important;
+    color: #ffffff !important;
+    border-color: var(--brand-blue) !important;
+}
+
+.modal-auth-header {
+    text-align: center;
+    margin-bottom: 2.25rem;
+    margin-top: 1rem;
+}
+
+.modal-auth-header h3,
+.auth-header h2,
+.auth-header h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    letter-spacing: -0.5px;
+}
+
+.modal-auth-header p,
+.auth-header p {
+    font-size: 0.9rem;
+    color: #9ca3af !important;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* Flex header row prevents layout text overlap collision drops */
+.label-wrapper {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 2px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #9ca3af !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 !important;
+}
+
+.form-group input {
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid #374151 !important;
+    background: #1f2937 !important;
+    outline: none;
+    font-size: 0.95rem;
+    color: #ffffff !important;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.form-group input:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.btn-auth-submit,
+.auth-btn {
+    background: #4f46e5 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 1rem !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2) !important;
+    transition: background 0.2s !important;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.btn-auth-submit:hover,
+.auth-btn:hover {
+    background: #4338ca !important;
+}
+
+.modal-auth-footer {
+    text-align: center;
+    margin-top: 1.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #9ca3af;
+}
+
+.modal-auth-footer a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   10. Minimal Corporate Footer
+   ========================================================================== */
+.main-footer {
+    background: #030712;
+    color: #4b5563;
+    padding: 5rem 2rem 2.5rem 2rem;
+    border-top: 1px solid #111827;
+}
+
+.footer-links-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.footer-links-grid h4 {
+    color: #f9fafb;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+}
+
+.footer-links-grid a {
+    display: block;
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0.85rem;
+    font-weight: 500;
+}
+
+.footer-links-grid a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid #111827;
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   SOMA HUB STANDALONE PREMIUM AUTH PAGES THEMING
+   ========================================================================== */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    padding: 40px 20px;
+}
+
+.accent-text {
+    color: #6366f1;
+}
+
+.forgot-link,
+.switch-link {
+    font-size: 13px;
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.forgot-link:hover,
+.switch-link:hover {
+    text-decoration: underline;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* ==========================================================================
+   BULLETPROOF PASSWORD FIELD INPUT WRAPPER POSITIONING
+   ========================================================================== */
+.password-wrapper {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.password-wrapper input {
+    width: 100% !important;
+    /* FIXED: Uses 0.85rem vertical padding to match your email input field exactly */
+    padding: 0.85rem 3.5rem 0.85rem 1.25rem !important;
+    border: 1px solid #374151 !important;
+    border-radius: var(--radius-md) !important;
+    /* Standardized 12px curve layout */
+    font-size: 0.95rem !important;
+
+    /* CRITICAL FIX: Explicitly forces the dark background color */
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+
+    outline: none !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Adds the premium blue glow ring when you click inside to type */
+.password-wrapper input:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15) !important;
+}
+
+.password-wrapper button,
+#toggle-password-btn {
+    position: absolute !important;
+    right: 14px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 5 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#toggle-password-btn:hover,
+.password-wrapper button:hover {
+    opacity: 0.7 !important;
+}
+
+/* ==========================================================================
+   11. Dark Mode Visual Engine Overrides
+   ========================================================================== */
+body.dark-mode {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    --input-focus-bg: var(--dark-card);
+    --sb-track: #111827;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .stats-bar,
+body.dark-mode .sidebar-widget,
+body.dark-mode .resource-item,
+body.dark-mode .level-toggle-card,
+body.dark-mode .breadcrumb-container,
+body.dark-mode .content-primary-block,
+body.dark-mode .sticky-action-checkout-card {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .level-toggle-card.active {
+    background: rgba(79, 70, 229, 0.1);
+}
+
+body.dark-mode .logo {
+    color: #818cf8;
+}
+
+body.dark-mode .nav-links a {
+    color: var(--dark-text);
+}
+
+body.dark-mode .theme-switch-btn {
+    background: #111827;
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .section-title,
+body.dark-mode .resource-info h4,
+body.dark-mode .sidebar-widget h3,
+body.dark-mode .creator-profile strong,
+body.dark-mode .section-title-center h2,
+body.dark-mode .level-toggle-card h4,
+body.dark-mode .document-header-card h1,
+body.dark-mode .detail-description-section h3,
+body.dark-mode .lock-card h4,
+body.dark-mode .spec-row strong {
+    color: var(--dark-text);
+}
+
+body.dark-mode .meta-tag,
+body.dark-mode .avatar {
+    background: #1f2937;
+    color: #d1d5db;
+}
+
+body.dark-mode .btn-action {
+    background: var(--brand-blue);
+}
+
+body.dark-mode .btn-action:hover {
+    background: var(--brand-blue-hover);
+}
+
+body.dark-mode .btn-secondary {
+    border-color: #818cf8;
+    color: #818cf8 !important;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background: #818cf8;
+    color: #030712 !important;
+}
+
+body.dark-mode .breadcrumbs span,
+body.dark-mode .detail-description-section p,
+body.dark-mode .detail-description-section li {
+    color: #d1d5db;
+}
+
+body.dark-mode .document-preview-box {
+    background: #111827;
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .preview-overlay-lock {
+    background: linear-gradient(180deg, rgba(3, 7, 18, 0.1) 0%, #030712 85%);
+}
+
+body.dark-mode .spec-row {
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+/* ==========================================================================
+   12. Fully Responsive Adaptive Device Queries
+   ========================================================================== */
+@media (max-width: 968px) {
+
+    .dashboard-layout,
+    .detail-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .search-filter {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+        gap: 0.5rem;
+        box-shadow: none;
+    }
+
+    .filter-select,
+    .search-filter input {
+        background: #ffffff;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border-color);
+        width: 100%;
+        padding: 0.85rem;
+    }
+
+    .stats-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .resource-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+
+    .resource-action {
+        width: 100%;
+        justify-content: space-between;
+        border-top: 1px dashed var(--border-color);
+        padding-top: 1rem;
+    }
+
+    body.dark-mode .resource-action {
+        border-color: var(--dark-border);
+    }
+
+    .content-primary-block {
+        padding: 2rem 1.5rem;
+    }
+
+    .sticky-action-checkout-card {
+        position: static;
+    }
+}
+
+@media (max-width: 580px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        padding: 1.25rem 1rem;
+    }
+
+    .nav-links {
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .nav-links a,
+    .btn-secondary {
+        font-size: 0.85rem !important;
+    }
+
+    .btn-secondary {
+        padding: 0.5rem 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* ==========================================================================
+   13. Micro Interactions, Motion System & Utilities
+   ========================================================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseSoft {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.fade-in {
+    animation: fadeIn var(--transition-slow) ease both;
+}
+
+.pulse {
+    animation: pulseSoft 1.8s infinite;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--brand-blue) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hover-lift {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================================
+   14. Accessibility Enhancements
+   ========================================================================== */
+:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.5);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================================================
+   15. Loading Skeleton System
+   ========================================================================== */
+.skeleton {
+    background: linear-gradient(90deg,
+            rgba(226, 232, 240, 0.6) 25%,
+            rgba(241, 245, 249, 0.9) 37%,
+            rgba(226, 232, 240, 0.6) 63%);
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.2s ease infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* ==========================================================================
+   16. Toast Notifications (Simple System)
+   ========================================================================== */
+.toast-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 2000;
+}
+
+.toast {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 0.9rem 1.2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 240px;
+    animation: fadeIn var(--transition-base) ease;
+}
+
+.toast.success {
+    border-left: 4px solid #10b981;
+}
+
+.toast.error {
+    border-left: 4px solid #ef4444;
+}
+
+/* ==========================================================================
+   17. Scrollbar Styling (Modern Browsers)
+   ========================================================================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-track);
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(79, 70, 229, 0.4);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(79, 70, 229, 0.7);
+}
+
+/* ==========================================================================
+   FINAL NAVBAR BUTTONS VISUAL PATCH
+   ========================================================================== */
+.btn-nav-action {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px 20px !important;
+    /* Perfect matching layout size */
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    /* Smooth matching curve */
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* PORTAL LOGIN: Solid Purple/Indigo Button */
+.btn-nav-action.btn-login-solid {
+    background-color: #4f46e5 !important;
+    color: #ffffff !important;
+    border: 1.5px solid #4f46e5 !important;
+}
+
+.btn-nav-action.btn-login-solid:hover {
+    background-color: #4338ca !important;
+    border-color: #4338ca !important;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
+}
+
+/* REGISTER: Outlined Translucent Button */
+.btn-nav-action.btn-register-outline {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 1.5px solid #374151 !important;
+    /* Elegant thin matching ring */
+}
+
+.btn-nav-action.btn-register-outline:hover {
+    background-color: #1f2937 !important;
+    border-color: #ffffff !important;
+}
+
+/* ==========================================================================
+   18. MOBILE RESPONSIVENESS PATCH FOR SOMA_HUB HEADER
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+
+    /* 1. Allows the navbar container to expand naturally if wrapped */
+    .navbar {
+        padding: 1rem 4% !important;
+        flex-wrap: wrap !important;
+        gap: 1rem !important;
+    }
+
+    /* 2. Drops the link menu items below the logo nicely or lets them breathe */
+    .nav-links {
+        gap: 1.25rem !important;
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    /* 3. Stacks the navigation bar items vertically so they never clip */
+    .navbar {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 0.85rem !important;
+    }
+
+    /* 4. Lines up your core menu links nicely on mobile viewports */
+    .nav-links {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+        width: 100% !important;
+    }
+
+    /* 5. Makes your primary button pairs sit nicely together down the middle */
+    .btn-nav-action {
+        padding: 0.55rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* ==========================================================================
+   19. MASTER SOMA_HUB RESPONSIVE ENGINE PATCH
+   ========================================================================== */
+
+/* Triggers when layout starts running out of side-by-side room */
+@media screen and (max-width: 992px) {
+    .navbar {
+        padding: 0.85rem 4% !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+    }
+
+    /* Keeps your links and core layout inline but tightens text gaps */
+    .nav-links {
+        gap: 1rem !important;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem !important;
+    }
+
+    /* Shrinks button sizing slightly on smaller viewports */
+    .btn-nav-action {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* Perfect alignment layout for small phone screens */
+@media screen and (max-width: 680px) {
+    .navbar {
+        flex-direction: column !important;
+        /* Centers elements neatly */
+        gap: 0.75rem !important;
+        padding: 1rem 2% !important;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        /* Allows small links to bundle safely */
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+    }
+
+    /* FORCES THE BUTTONS TO SIT PERFECTLY SIDE-BY-SIDE ON PHONES */
+    .btn-nav-action {
+        flex: 1 !important;
+        max-width: 130px !important;
+        /* Prevents stretching into large blocky shapes */
+        padding: 0.5rem 0.85rem !important;
+        font-size: 0.8rem !important;
+        text-align: center !important;
+    }
+
+    /* FIXES REGISTRATION BOX TRANSPARENCY IN LIGHT THEME MODES */
+    .btn-nav-action.btn-register-outline {
+        background-color: rgba(0, 0, 0, 0.05) !important;
+        border-color: #4f46e5 !important;
+        color: #4f46e5 !important;
+    }
+
+    body.dark-mode .btn-nav-action.btn-register-outline {
+        background-color: transparent !important;
+        border-color: #818cf8 !important;
+        color: #818cf8 !important;
+    }
+}
+
+/* ==========================================================================
+   20. COMPLETE RESPONSIVE DESIGN ENGINE & THEME PATCH
+   ========================================================================== */
+
+/* Universal Layout Rules for the Actions Group Container */
+.nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
+
+/* Tablet Layout Constraints */
+@media screen and (max-width: 992px) {
+    .navbar {
+        padding: 0.85rem 4% !important;
+    }
+
+    .nav-links {
+        gap: 1rem !important;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem !important;
+    }
+
+    .nav-actions {
+        gap: 0.75rem !important;
+    }
+
+    .btn-nav-action {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* Perfect Grid Breakdown for Small Mobile Phone Screens */
+@media screen and (max-width: 680px) {
+    .navbar {
+        flex-direction: column !important;
+        /* Stacks layout elements cleanly */
+        gap: 0.85rem !important;
+        padding: 1rem 3% !important;
+        text-align: center !important;
+    }
+
+    /* Centers navigation page text links down the middle */
+    .nav-links {
+        width: 100% !important;
+        justify-content: center !important;
+        gap: 1.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    /* Forces your theme switch and buttons inline side-by-side */
+    .nav-actions {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        flex-wrap: nowrap !important;
+        /* FORCES the moon/sun icon inline */
+    }
+
+    /* Locks button sizes perfectly on mobile so they never break rows */
+    .btn-nav-action {
+        flex: 1 !important;
+        max-width: 120px !important;
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.8rem !important;
+        text-align: center !important;
+    }
+
+    /* Keeps Register outline highly readable in Light Theme Mode views */
+    .btn-nav-action.btn-register-outline {
+        background-color: rgba(0, 0, 0, 0.03) !important;
+        border-color: #4f46e5 !important;
+        color: #4f46e5 !important;
+    }
+
+    body.dark-mode .btn-nav-action.btn-register-outline {
+        background-color: transparent !important;
+        border-color: #818cf8 !important;
+        color: #818cf8 !important;
+    }
+}
+
+/* ==========================================================================
+   21. MODERNIZED THEME SWITCHER TOGGLE
+   ========================================================================== */
+.theme-switch-btn {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    outline: none !important;
+}
+
+/* The outer capsule pills track */
+.theme-switch-btn .toggle-track {
+    width: 54px !important;
+    height: 28px !important;
+    background-color: rgba(0, 0, 0, 0.08) !important;
+    /* Subtle gray inside Light Mode */
+    border: 1.5px solid #4f46e5 !important;
+    border-radius: 30px !important;
+    position: relative !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Dark Mode Track color change */
+body.dark-mode .theme-switch-btn .toggle-track {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: #818cf8 !important;
+}
+
+/* The sliding circle inside the pill track */
+.theme-switch-btn .toggle-thumb {
+    width: 22px !important;
+    height: 22px !important;
+    background: #ffffff !important;
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: 1.5px !important;
+    left: 2px !important;
+    /* Default left-aligned position in Light Mode */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 13px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Dark Mode Sliding Shift & Glow */
+body.dark-mode .theme-switch-btn .toggle-thumb {
+    left: 26px !important;
+    /* Smoothly slides to the right side on dark mode */
+    background: #111827 !important;
+    /* Dark internal canvas background */
+    box-shadow: 0 0 10px rgba(129, 140, 248, 0.4) !important;
+}
+
+/* Icon visibility styling controls */
+.theme-switch-btn .icon-sun {
+    display: block !important;
+}
+
+.theme-switch-btn .icon-moon {
+    display: none !important;
+}
+
+/* Swap icons cleanly using standard CSS triggers */
+body.dark-mode .theme-switch-btn .icon-sun {
+    display: none !important;
+}
+
+body.dark-mode .theme-switch-btn .icon-moon {
+    display: block !important;
+    transform: rotate(15deg);
+}
+
+/* Subtle hover pop effect */
+.theme-switch-btn:hover .toggle-track {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   22. LIGHT THEME REGISTER BUTTON TEXT CONTRAST FIX
+   ========================================================================== */
+/* Default Light Mode State (When body DOES NOT have the .dark-mode class) */
+body:not(.dark-mode) .btn-nav-action.btn-register-outline {
+    color: #1f2937 !important;
+    /* Deep slate/black text color for crisp visibility */
+    border-color: #374151 !important;
+    /* Defined dark border frame */
+}
+
+/* Hover state for Light Mode */
+body:not(.dark-mode) .btn-nav-action.btn-register-outline:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    /* Soft dark hover hint tint */
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+/* Forces form elements to inherit your page font instead of browser defaults */
+input,
+button,
+select,
+textarea,
+a {
+    font-family: inherit !important;
+}
+
+/* ==========================================================================
+   23. PREMIUM BRAND LOGO ICON ALIGNMENT
+   ========================================================================== */
+.logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    /* Perfect breathing room between icon and text */
+    font-weight: 800 !important;
+    font-size: 1.5rem !important;
+    cursor: pointer;
+}
+
+/* Styles the premium vector icon */
+.logo-icon {
+    width: 28px !important;
+    height: 28px !important;
+    color: #4f46e5 !important;
+    /* Matches your beautiful solid indigo theme */
+    transition: transform 0.3s ease, color 0.3s ease !important;
+}
+
+/* Smooth hover micro-interaction effect */
+.logo:hover .logo-icon {
+    transform: translateY(-2px) rotate(-5deg);
+    /* Subtle playful academic pop */
+    color: #4338ca !important;
+}
+
+/* Dark mode adjustment for the logo icon glow */
+body.dark-mode .logo-icon {
+    color: #818cf8 !important;
+    /* Vibrant indigo glow for dark canvases */
+}
+
+/* Styling for the Filter Buttons area */
+.filter-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background: var(--bg-white);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.filter-nav button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #4f46e5;
+    background: transparent;
+    color: #4f46e5;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-nav button:hover {
+    background: #4f46e5;
+    color: white;
+}
+
+/* Styling for the content area */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+/* Removes the ugly blue underline and default link styling */
+.level-card-grid a {
+    text-decoration: none;
+    /* Removes the underline */
+    color: inherit;
+    /* Keeps your text color (white/gray) */
+    display: block;
+    /* Ensures the card maintains its shape */
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Add a nice hover effect since they are now links */
+.level-card-grid a:hover {
+    transform: scale(1.02);
+}
+
+/* Make the Filter Bar look like a sophisticated menu */
+.filter-nav {
+    display: flex;
+    justify-content: center;
+    /* This centers your buttons */
+    gap: 20px;
+    /* Adds breathing room between buttons */
+    padding: 30px 0;
+    /* Makes the bar feel 'taller' and more spacious */
+    background-color: #f8fafc;
+    /* Subtle light gray to separate from content */
+}
+
+.filter-nav button {
+    padding: 15px 30px;
+    /* Makes the buttons larger */
+    font-size: 1.1rem;
+    /* Makes the text easier to read */
+    border-radius: 10px;
+    border: 2px solid #4f46e5;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-nav button:hover {
+    background: #4f46e5;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- Filter Buttons Styling --- */
+.filter-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 30px;
+    background: #0f172a;
+    /* Dark background to match your homepage */
+}
+
+.filter-nav button {
+    padding: 12px 25px;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #4f46e5;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.filter-nav button:hover {
+    background: #4f46e5;
+}
+
+/* --- Card & Download Button Styling --- */
+.level-toggle-card {
+    background: #1a1f2e;
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4f46e5;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Update your button styles in style.css to match */
+.filter-nav button,
+.download-btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+}
+
+/* Specific look for the Senior buttons */
+.filter-nav button {
+    background-color: #1e293b;
+    /* Dark navy */
+    color: white;
+    border: 1px solid #4f46e5;
+}
+
+.filter-nav button:hover {
+    background-color: #4f46e5;
+    /* The 'SomaHub' blue */
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4f46e5;
+    /* Consistent SomaHub Purple */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+    background-color: #4338ca;
+    /* Darker purple on hover */
+}
+
+/* Styling for the individual result cards */
+.level-toggle-card {
+    background-color: #ffffff;
+    /* Keeping it white or slightly off-white */
+    border: 1px solid #e2e8f0;
+    /* Subtle border */
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    /* Limits the width for better readability */
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.level-toggle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhancing the typography */
+.level-toggle-card h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    color: #1e293b;
+}
+
+.level-toggle-card p {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* This centers your "Coming Soon" message */
+.empty-msg {
+    display: flex;
+    justify-content: center;
+    /* Horizontal center */
+    align-items: center;
+    /* Vertical center */
+    height: 60vh;
+    /* Takes up 60% of the screen height */
+    font-size: 1.5rem;
+    color: #94a3b8;
+    /* A nice muted grey */
+    text-align: center;
+}

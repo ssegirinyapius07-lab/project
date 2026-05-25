@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SomaHub - Academic Resource Sharing Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                <path d="M12 6v10"></path>
+                <path d="M9 9h6"></path>
+            </svg>
+            Soma<span>Hub</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="index.html" class="active">Explore</a>
+            <a href="#">Curriculum</a>
+            <a href="#">Upload & Earn</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-switch-btn" aria-label="Toggle Theme">
+                <div class="toggle-track">
+                    <div class="toggle-thumb">
+                        <span class="icon-sun">☀️</span>
+                        <span class="icon-moon">🌙</span>
+                    </div>
+                </div>
+            </button>
+
+            <a href="javascript:void(0)" class="btn-nav-action btn-login-solid" onclick="openAuthModal('login')">Portal
+                Login</a>
+            <a href="javascript:void(0)" class="btn-nav-action btn-register-outline"
+                onclick="openAuthModal('register')">Register</a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <span class="hero-badge">Uganda's Academic Repository Platform</span>
+        <h1>Access Simplified Revision Notes & Solved Papers Natively</h1>
+        <p>Empowering students from Senior 1 to University with premium educational assets.</p>
+
+        <div class="search-filter">
+            <select class="filter-select">
+                <option>All Subjects</option>
+                <option>Mathematics</option>
+                <option>Physics</option>
+                <option>History</option>
+                <option>Computer Science</option>
+            </select>
+            <input type="text" placeholder="Search resources, topic pamphlets, course codes...">
+            <button class="btn-primary">Search</button>
+        </div>
+    </section>
+
+    <div class="main-container level-selector-section">
+        <div class="section-title-center">
+            <h2>Select Your Level of Education</h2>
+            <p>Browse high-quality study materials instantly. No initial barriers or account restrictions.</p>
+        </div>
+
+        <div class="level-card-grid">
+            <a href="results.html" class="level-toggle-card active"
+                onclick="localStorage.setItem('selectedHub', 'olevel')">
+                <div class="level-icon-box">📝</div>
+                <h4>O-Level Hub</h4>
+                <p>Senior 1 — Senior 4</p>
+            </a>
+            <a href="results.html" class="level-toggle-card" onclick="localStorage.setItem('selectedHub', 'alevel')">
+                <div class="level-icon-box">📚</div>
+                <h4>A-Level Hub</h4>
+                <p>Senior 5 — Senior 6</p>
+            </a>
+            <a href="results.html" class="level-toggle-card"
+                onclick="localStorage.setItem('selectedHub', 'university')">
+                <div class="level-icon-box">🎓</div>
+                <h4>University Hub</h4>
+                <p>Diplomas & Degrees</p>
+            </a>
+        </div>
+    </div>
+
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>45,000+</h3>
+                <p>Verified Documents</p>
+            </div>
+            <div class="stat-card">
+                <h3>12,500+</h3>
+                <p>Active Student Contributors</p>
+            </div>
+            <div class="stat-card">
+                <h3>24-Hour</h3>
+                <p>Mobile Money Settlements</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-container dashboard-layout">
+        <section class="main-feed">
+            <div class="section-header">
+                <h3 class="section-title" id="feed-title">Current Resources: O-Level Hub</h3>
+                <a href="#" class="view-all-link">View Extended Stream &rarr;</a>
+            </div>
+
+            <div class="resource-list">
+                <div class="resource-item" data-level="olevel">
+                    <div class="resource-info">
+                        <span class="file-badge pdf">PDF</span>
+                        <div>
+                            <h4>UNEB History of East Africa Complete Revision Notes</h4>
+                            <p>O-Level Syllabus • Strategic S.1 to S.4 Comprehensive Guide</p>
+                            <span class="meta-tag">Downloaded 4,120 times</span>
+                        </div>
+                    </div>
+                    <div class="resource-action">
+                        <span class="price-tag free">FREE</span>
+                        <a href="#" class="btn-action">Download Now</a>
+                    </div>
+                </div>
+
+                <div class="resource-item" data-level="alevel" style="display: none;">
+                    <div class="resource-info">
+                        <span class="file-badge pdf">PDF</span>
+                        <div>
+                            <h4>Pure Mathematics P425/1 Subsidized Past Paper Guides</h4>
+                            <p>A-Level Core • Senior 5 & Senior 6 Calculus & Vectors</p>
+                            <span class="meta-tag">Downloaded 1,850 times</span>
+                        </div>
+                    </div>
+                    <div class="resource-action">
+                        <span class="price-tag free">FREE</span>
+                        <a href="#" class="btn-action">Download Now</a>
+                    </div>
+                </div>
+
+                <div class="resource-item" data-level="university" style="display: none;">
+                    <div class="resource-info">
+                        <span class="file-badge doc">DOCX</span>
+                        <div>
+                            <h4>Data Structures & Algorithms - Solved Exam Guide (2025)</h4>
+                            <p>University Level • Computer Science Undergraduate Coursework</p>
+                            <span class="meta-tag">Downloaded 1,240 times</span>
+                        </div>
+                    </div>
+                    <div class="resource-action">
+                        <span class="price-tag premium">1,500 UGX</span>
+                        <a href="document-detail.html" class="btn-action">Unlock Document</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3>Top Resource Earners</h3>
+                <p class="widget-subtitle">This Month's Peer Payout Board</p>
+
+                <div class="leaderboard">
+                    <div class="leaderboard-item">
+                        <div class="creator-profile">
+                            <div class="avatar">MA</div>
+                            <div><strong>Mark A.</strong>
+                                <p>Makerere University</p>
+                            </div>
+                        </div>
+                        <span class="badge-earning">340,000 UGX</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <div class="creator-profile">
+                            <div class="avatar">JN</div>
+                            <div><strong>Jane N.</strong>
+                                <p>Kyambogo Varsity</p>
+                            </div>
+                        </div>
+                        <span class="badge-earning">215,500 UGX</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget promo-widget">
+                <h3>Monetize Your Brain</h3>
+                <p>Upload typed lecture handouts, well-organized pamphlets, or revision solutions and earn instantly
+                    when peers fetch them.</p>
+                <a href="#" class="btn-sidebar-action">Start Uploading Now</a>
+            </div>
+        </aside>
+    </main>
+
+    <div id="auth-modal" class="modal-overlay">
+        <div class="auth-card modal-card">
+            <button class="close-modal-btn" onclick="closeAuthModal()">&times;</button>
+
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="tab-login" onclick="switchModalForm('login')">Portal Login</button>
+                <button class="tab-btn" id="tab-register" onclick="switchModalForm('register')">Register</button>
+            </div>
+
+            <form id="modal-form" onsubmit="handleModalSubmit(event)">
+                <div class="auth-header">
+                    <h3 id="modal-title">Welcome Back</h3>
+                    <p id="modal-subtitle">Access premium educational assets instantly.</p>
+                </div>
+
+                <div class="form-group" id="modal-name-group" style="display: none;">
+                    <label for="modal-user-name">FULL NAME</label>
+                    <input type="text" id="modal-user-name" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="modal-user-email">EMAIL ADDRESS</label>
+                    <input type="email" id="modal-user-email" placeholder="student@somahub.com" required>
+                </div>
+
+                <div class="form-group">
+                    <div class="label-wrapper">
+                        <label for="modal-user-password">PASSWORD</label>
+                    </div>
+
+                    <div class="password-wrapper">
+                        <input type="password" id="modal-user-password" placeholder="••••••••" required>
+                        <button type="button" id="toggle-password-btn" onclick="togglePasswordVisibility()">👁️</button>
+                    </div>
+
+                    <div style="display: flex; justify-content: flex-end; margin-top: 6px; width: 100%;">
+                        <a href="#" id="modal-forgot-link" class="forgot-link">Forgot?</a>
+                    </div>
+                </div>
+
+                <button type="submit" id="modal-submit-btn" class="auth-btn">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-links-grid">
+            <div>
+                <h4>SomaHub Platform</h4>
+                <a href="#">About Us</a>
+                <a href="#">IP Policy</a>
+                <a href="#">Terms & Agreements</a>
+            </div>
+            <div>
+                <h4>Academic Hubs</h4>
+                <a href="#">O-Level Core</a>
+                <a href="#">A-Level Core</a>
+                <a href="#">University Hubs</a>
+            </div>
+            <div>
+                <h4>Support Center</h4>
+                <a href="#">Payout Metrics</a>
+                <a href="#">WhatsApp Helpdesk</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SomaHub Ecosystem. Engineered for global academic transparency.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==========================================
+        // 1. MULTI-LEVEL FILTER SYSTEM LOGIC
+        // ==========================================
+        function filterEducationLevel(level, selectedElement) {
+            document.querySelectorAll('.level-toggle-card').forEach(card => card.classList.remove('active'));
+            selectedElement.classList.add('active');
+
+            const feedTitle = document.getElementById('feed-title');
+            if (level === 'olevel') feedTitle.textContent = "Current Resources: O-Level Hub";
+            if (level === 'alevel') feedTitle.textContent = "Current Resources: A-Level Hub";
+            if (level === 'university') feedTitle.textContent = "Current Resources: University Hub";
+
+            document.querySelectorAll('.resource-item').forEach(item => {
+                if (item.getAttribute('data-level') === level) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // ==========================================
+        // 2. COMPREHENSIVE LIGHT/DARK THEME CONFIG
+        // ==========================================
+        const toggleBtn = document.getElementById('theme-toggle');
+        if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        // ==========================================
+        // 3. SECURE MODAL POPUP GATEWAY UTILITIES
+        // ==========================================
+        let modalMode = 'login';
+
+        function openAuthModal(defaultMode = 'login') {
+            document.getElementById('auth-modal').classList.add('open');
+            switchModalForm(defaultMode);
+        }
+
+        function closeAuthModal() {
+            document.getElementById('auth-modal').classList.remove('open');
+        }
+
+        function switchModalForm(mode) {
+            modalMode = mode;
+            const tabLogin = document.getElementById('tab-login');
+            const tabRegister = document.getElementById('tab-register');
+            const title = document.getElementById('modal-title');
+            const subtitle = document.getElementById('modal-subtitle');
+            const nameGroup = document.getElementById('modal-name-group');
+            const nameInput = document.getElementById('modal-user-name');
+            const forgotLink = document.getElementById('modal-forgot-link');
+            const submitBtn = document.getElementById('modal-submit-btn');
+
+            if (mode === 'register') {
+                tabLogin.classList.remove('active');
+                tabRegister.classList.add('active');
+
+                title.innerText = "Create Account";
+                subtitle.innerText = "Join SomaHub to access premium study materials.";
+                submitBtn.innerText = "Register";
+
+                nameGroup.style.display = "flex";
+                nameInput.setAttribute('required', 'true');
+                forgotLink.style.display = "none";
+            } else {
+                tabRegister.classList.remove('active');
+                tabLogin.classList.add('active');
+
+                title.innerText = "Welcome Back";
+                subtitle.innerText = "Access premium educational assets instantly.";
+                submitBtn.innerText = "Sign In";
+
+                nameGroup.style.display = "none";
+                nameInput.removeAttribute('required');
+                forgotLink.style.display = "block";
+            }
+        }
+
+        // ==========================================
+        // 4. SECURE PASSWORD VISIBILITY TOGGLE (EYE)
+        // ==========================================
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('modal-user-password');
+            const toggleBtn = document.getElementById('toggle-password-btn');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.innerText = '🙈';
+            } else {
+                passwordInput.type = 'password'; // <-- TYPO CORRECTION MADE HERE FIXING APP
+                toggleBtn.innerText = '👁️';
+            }
+        }
+
+        function handleModalSubmit(event) {
+            event.preventDefault();
+            alert(modalMode === 'login' ? "Authenticating security credentials..." : "Compiling structural cloud profile...");
+        }
+    </script>
+</body>
+
+</html>
