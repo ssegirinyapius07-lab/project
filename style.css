@@ -2264,3 +2264,26 @@ body.dark-mode .logo-icon {
         font-size: 15px;
     }
 }
+/* Mobile adjustments for your modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;          /* Don't hit the edges of the screen */
+        padding: 20px;       /* More space inside the box */
+        margin: 10% auto;    /* Center vertically with a bit of space */
+    }
+
+    /* Make input fields touch-friendly */
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"] {
+        padding: 15px;       /* Taller inputs are easier to tap */
+        font-size: 16px;     /* Prevents iOS from zooming in on focus */
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding doesn't break the width */
+    }
+
+    .register-btn {
+        width: 100%;         /* Full width button */
+        padding: 15px;       /* Larger touch target */
+    }
+}
